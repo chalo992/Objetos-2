@@ -20,7 +20,7 @@ private double interes;
 				+ montoInicial;
 	}
 	
-	public boolean permiteMembresia(Membresia m) {
-		return m.permitePlazoFijo();
-	}
+	public boolean permiteProductoSimpleEnCombinado(Membresia m) {
+		 return m.permitePlazoFijo();
+	 }
 }

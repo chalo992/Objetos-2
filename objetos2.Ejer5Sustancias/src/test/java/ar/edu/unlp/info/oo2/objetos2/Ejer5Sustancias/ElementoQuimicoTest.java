@@ -2,37 +2,50 @@ package ar.edu.unlp.info.oo2.objetos2.Ejer5Sustancias;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class ElementoQuimicoTest {
  private Atomo hidrogeno, oxigeno, cloro, sodio, calcio;
  private Union NaCa, NaCl, CaO, HO;
+ private FactoryElementoQuimico factory;
+ private List<ElementoQuimico> elementosNaCa, elementosNaCL,
+ elementosCaO, elementosHO;
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		this.hidrogeno = new Atomo("Hidrogeno", "H", 1, 1, false);
-		this.oxigeno = new Atomo("Oxigeno", "O", 16, -2, false);
-		this.cloro = new Atomo("Cloro", "Cl", 35, -1, false);
-		this.sodio = new Atomo("Sodio", "Na", 23, 1, true);
-		this.calcio = new Atomo("Calcio", "Ca", 40, 2, true);
+		this.factory = new FactoryElementoQuimico();
+		this.hidrogeno = this.factory.getHidrogeno();
+		this.oxigeno = this.factory.getOxigeno();
+		this.cloro = this.factory.getCloro();
+		this.sodio = this.factory.getSodio();
+		this.calcio = this.factory.getCalcio();
 		
-		this.NaCa = new Union();
-		this.NaCl = new Union();
-		this.CaO = new Union();
-		this.HO = new Union();
+		this.elementosNaCa = new ArrayList<>();
+	    this.elementosNaCL = new ArrayList<>();
+	    this.elementosCaO = new ArrayList<>();
+	    this.elementosHO = new ArrayList<>();
 		
-		this.NaCa.agregarElemento(sodio);
-		this.NaCa.agregarElemento(calcio);
+		this.elementosNaCa.add(sodio);
+		this.elementosNaCa.add(calcio);
 		
-		this.NaCl.agregarElemento(sodio);
-		this.NaCl.agregarElemento(cloro);
+		this.elementosNaCL.add(sodio);
+		this.elementosNaCL.add(cloro);
 		
-		this.CaO.agregarElemento(calcio);
-		this.CaO.agregarElemento(oxigeno);
+		this.elementosCaO.add(calcio);
+		this.elementosCaO.add(oxigeno);
 		
-		this.HO.agregarElemento(hidrogeno);
-		this.HO.agregarElemento(oxigeno);
+		this.elementosHO.add(hidrogeno);
+		this.elementosHO.add(oxigeno);
+		
+
+		this.NaCa = this.factory.getUnion(elementosNaCa);
+		this.NaCl = this.factory.getUnion(elementosNaCL);
+		this.CaO = this.factory.getUnion(elementosCaO);
+		this.HO = this.factory.getUnion(elementosHO);
 	}
 	
     @Test

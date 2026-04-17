@@ -16,7 +16,7 @@ private double valorCompra;
 		return this.valorCompra * montoInicial;
 	}
 	
-	public boolean permiteMembresia(Membresia m) {
-		return m.permiteCompraPesos();
-	}
+	public boolean permiteProductoSimpleEnCombinado(Membresia m) {
+		 return m.permiteCompraPesos();
+	 }
 }

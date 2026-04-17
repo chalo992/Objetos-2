@@ -1,13 +1,14 @@
 package ar.edu.unlp.info.oo2.objetos2.Ejer7ProductosFinancieros;
 
-
 public abstract class Membresia {
 	
-	  public boolean permiteCompraDolares() {
-		  return true;
+	/*
+	  public boolean permiteMembresia(ProductoFinanciero pf) {
+		  return pf.permiteMembresia();
 	  }
-	  
-	  public boolean permiteCompraPesos() {
+	  */
+	
+	  public boolean permiteCompraDolares() {
 		  return true;
 	  }
 	  
@@ -19,5 +20,9 @@ public abstract class Membresia {
 		  return true;
 	  }
 	  
-	  public abstract boolean permiteCompraBonoAltoRiesgo();
+	  public boolean permiteCompraBonoAltoRiesgo() {
+		  return true;
+	  }
+	  
+	  public abstract boolean permiteCompraPesos();
 }

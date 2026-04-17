@@ -19,8 +19,13 @@ private List<ProductoFinanciero> productos = new ArrayList<>();
 				.mapToDouble(p -> p.retornarInversion(montoInicial)).sum();
 	}
 	
+	public boolean permiteProductoSimpleEnCombinado(Membresia m) {
+		 return this.permiteMembresia(m);
+	 }
+	
+	@Override
 	public boolean permiteMembresia(Membresia m) {
 		return this.productos.stream()
-				.allMatch(p -> p.permiteMembresia(m));
+				.allMatch(p -> p.permiteProductoSimpleEnCombinado(m));
 	}
 }

@@ -19,7 +19,7 @@ private int parking;
 		return (montoInicial/100) * variacion + montoInicial;
 	}
 	
-	public boolean permiteMembresia(Membresia m) {
-		return m.permiteCompraBonoBajoRiesgo();
-	}
+	public boolean permiteProductoSimpleEnCombinado(Membresia m) {
+		 return m.permiteCompraBonoBajoRiesgo();
+	 }
 }
