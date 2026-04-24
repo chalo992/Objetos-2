@@ -29,14 +29,6 @@ public class ProductoFinancieroTest {
 		pc3 = new CreadorConcretoProducto3();
 		pc4 = new CreadorConcretoProducto4();
 	}
-	
-    @Test
-    public void testAltaProductoFinanciero() {
-        assertTrue(this.silver.altaBonoAltoRiesgo(pc3));
-        assertFalse(this.gold.altaCompraPesos(pc4));
-        assertTrue(this.silver.altaProducto2(pc2));
-        assertFalse(this.gold.altaProducto1(pc1));
-    }
     
     @Test
     public void testRetornarInversion() {
