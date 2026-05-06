@@ -8,7 +8,7 @@ public class DecoratorPermisos extends DecoratorFileManager{
 	
 	@Override
 	public String prettyPrint() {
-		return this.file.getPermisos()  + " - " + super.prettyPrint();
+		return super.prettyPrint() + " - " +  this.file.getPermisos();
 	   }
 }
 

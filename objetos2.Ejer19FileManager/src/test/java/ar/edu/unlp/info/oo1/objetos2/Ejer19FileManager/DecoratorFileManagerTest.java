@@ -44,15 +44,15 @@ public class DecoratorFileManagerTest {
     @Test
     public void testPrettyPrint() {
         DecoratorFileManager d1 = new DecoratorExtension(fileOO2);
-        assertEquals(d1.prettyPrint(), ".txt - nombre");
+        assertEquals(d1.prettyPrint(), "nombre - .txt");
         System.out.println(d1.prettyPrint());
         
         DecoratorFileManager d2 = new DecoratorExtension(new DecoratorFechaCreacion(fileOO2));
-        assertEquals(d2.prettyPrint(), ".txt - 2026-04-20 - nombre");
+        assertEquals(d2.prettyPrint(), "nombre - 2026-04-20 - .txt");
         System.out.println(d2.prettyPrint());
         
         DecoratorFileManager d3 = new DecoratorExtension(new DecoratorPermisos(new DecoratorTamanio(fileOO2)));
-        assertEquals(d3.prettyPrint(), ".txt - [R, W] - 35 - nombre");
+        assertEquals(d3.prettyPrint(), "nombre - 35 - [R, W] - .txt");
         System.out.println(d3.prettyPrint());
     }
 }

@@ -8,6 +8,6 @@ public class DecoratorTamanio extends DecoratorFileManager{
 	
 	@Override
 	public String prettyPrint() {
-		return  this.file.getTamanio() + " - " + super.prettyPrint();
+		return  super.prettyPrint() + " - " +  this.file.getTamanio();
 	   }
 }

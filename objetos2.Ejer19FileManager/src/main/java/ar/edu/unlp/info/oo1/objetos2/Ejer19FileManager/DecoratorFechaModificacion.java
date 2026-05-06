@@ -8,6 +8,6 @@ public class DecoratorFechaModificacion extends DecoratorFileManager{
 	
 	@Override
 	public String prettyPrint() {
-		return this.file.getFechaModificacion()  + " - " + super.prettyPrint();
+		return super.prettyPrint() + " - " + this.file.getFechaModificacion();
 	   }
 }

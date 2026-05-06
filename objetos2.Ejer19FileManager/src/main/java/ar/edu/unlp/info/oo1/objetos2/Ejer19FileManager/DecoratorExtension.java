@@ -8,6 +8,6 @@ public class DecoratorExtension extends DecoratorFileManager{
 	
 	@Override
 	public String prettyPrint() {
-		return this.file.getExtension() + " - " + super.prettyPrint();
+		return  super.prettyPrint() + " - " +this.file.getExtension();
 	   }
 }
