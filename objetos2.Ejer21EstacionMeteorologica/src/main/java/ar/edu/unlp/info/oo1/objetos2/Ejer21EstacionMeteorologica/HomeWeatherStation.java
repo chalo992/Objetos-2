@@ -3,10 +3,10 @@ package ar.edu.unlp.info.oo1.objetos2.Ejer21EstacionMeteorologica;
 import java.util.List;
 
 public class HomeWeatherStation implements WeatherData{
-private double temperatura;
-private double presion;
-private double radiacionSolar;
-private List<Double> temperaturas;
+protected double temperatura;
+protected double presion;
+protected double radiacionSolar;
+protected List<Double> temperaturas;
 
 	
 

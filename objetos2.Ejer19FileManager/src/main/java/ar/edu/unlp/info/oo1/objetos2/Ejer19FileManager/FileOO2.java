@@ -11,6 +11,8 @@ private int tamanio;
 private LocalDate fechaCreacion;
 private LocalDate fechaModificacion;
 private List<String> permisos;
+private FileManager sigFile;
+private FileManager antFile;
 
 
 public FileOO2(String nombre, String extension, int tamanio, LocalDate fechaCreacion,
@@ -46,6 +48,18 @@ public FileOO2(String nombre, String extension, int tamanio, LocalDate fechaCrea
 	
 	public List<String> getPermisos(){
 		return this.permisos;
+	}
+	
+	public FileManager getFileManager() {
+		return this.sigFile;
+	}
+	
+	public void setSigFileManager(FileManager file) {
+		 this.sigFile = file;
+	}
+	
+	public void setAntFileManager(FileManager file) {
+		this.antFile = file;
 	}
 	
 }

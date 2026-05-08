@@ -10,4 +10,7 @@ public interface FileManager {
  LocalDate getFechaCreacion();
  LocalDate getFechaModificacion();
  List<String> getPermisos();
+ FileManager getFileManager();
+ void setSigFileManager(FileManager file);
+ void setAntFileManager(FileManager file);
 }

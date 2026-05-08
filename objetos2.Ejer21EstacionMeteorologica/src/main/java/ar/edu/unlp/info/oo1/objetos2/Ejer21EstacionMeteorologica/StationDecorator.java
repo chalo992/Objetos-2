@@ -4,15 +4,13 @@ import java.util.List;
 
 public class StationDecorator implements WeatherData{
 protected WeatherData weatherData;
-protected TemperaturaStrategy temperaturaStrategy;
 
-public StationDecorator(WeatherData weatherData, TemperaturaStrategy temperaturaStrategy) {
+public StationDecorator(WeatherData weatherData) {
 	this.weatherData = weatherData;
-	this.temperaturaStrategy = temperaturaStrategy;
 }
 
 public double getTemperatura() {
-	return this.temperaturaStrategy.getTemperatura(this.weatherData.getTemperatura());
+	return this.weatherData.getTemperatura();
 }
 
 public double getPresion() {
@@ -28,7 +26,7 @@ public List<Double> getTemperaturas(){
 }
 
 public String displayData() {
-	return this.temperaturaStrategy.displayData(weatherData);
+	return this.weatherData.displayData();
 }
 
 
