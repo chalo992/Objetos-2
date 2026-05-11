@@ -40,29 +40,29 @@ public class MamiferoTest {
 	@Test
 	void testAbuelaMaterna() {
 		assertEquals(elsa, alexa.getAbuelaMaterna());
-		assertNull(sarabi.getAbuelaMaterna());
-		assertNull(elsa.getAbuelaMaterna());
+		assertTrue(sarabi.getAbuelaMaterna().esNull());
+		assertTrue(elsa.getAbuelaMaterna().esNull());
 	}
 
 	@Test
 	void testAbuelaPaterna() {
 		assertEquals(nala, alexa.getAbuelaPaterna());
-		assertNull(mufasa.getAbuelaPaterna());
-		assertNull(nala.getAbuelaPaterna());
+		assertTrue(mufasa.getAbuelaPaterna().esNull());
+		assertTrue(nala.getAbuelaPaterna().esNull());
 	}
 
 	@Test
 	void testAbueloMaterno() {
 		assertEquals(scar, alexa.getAbueloMaterno());
-		assertNull(sarabi.getAbueloMaterno());
-		assertNull(scar.getAbueloMaterno());
+		assertTrue(sarabi.getAbueloMaterno().esNull());
+		assertTrue(scar.getAbueloMaterno().esNull());
 	}
 
 	@Test
 	void testAbueloPaterno() {
 		assertEquals(melquiades, alexa.getAbueloPaterno());
-		assertNull(mufasa.getAbueloPaterno());
-		assertNull(melquiades.getAbueloPaterno());
+		assertTrue(mufasa.getAbueloPaterno().esNull());
+		assertTrue(melquiades.getAbueloPaterno().esNull());
 	}
 
 	@Test
@@ -81,14 +81,14 @@ public class MamiferoTest {
 	void testMadre() {
 		anonimo.setMadre(alexa);
 		assertEquals(alexa, anonimo.getMadre());
-		assertNull(nala.getMadre());
+		assertTrue(nala.getMadre().esNull());
 	}
 
 	@Test
 	void testPadre() {
 		anonimo.setPadre(mufasa);
 		assertEquals(mufasa, anonimo.getPadre());
-		assertNull(nala.getPadre());
+		assertTrue(nala.getPadre().esNull());
 	}
 
 	@Test

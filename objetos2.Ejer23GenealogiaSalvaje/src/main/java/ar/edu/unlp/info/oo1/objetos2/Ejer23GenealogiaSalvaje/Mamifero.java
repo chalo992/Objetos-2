@@ -3,23 +3,27 @@ package ar.edu.unlp.info.oo1.objetos2.Ejer23GenealogiaSalvaje;
 import java.time.LocalDate;
 
 
-public class Mamifero {
+public class Mamifero implements MamiferoInterface{
 	private String id;
 	private String especie;
 	private LocalDate fecha;
-	private Mamifero padre;
-	private Mamifero madre;
+	private MamiferoInterface padre;
+	private MamiferoInterface madre;
    
 	public Mamifero() {
-		this.id = null;
-		this.madre = null;
-		this.padre = null;
+		this.id = "";
+		this.madre = new MamiferoNull();
+		this.padre = new MamiferoNull();
 	}
 	
 	public Mamifero(String id) {
 		this.id = id;
-		this.madre = null;
-		this.padre = null;
+		this.madre = new MamiferoNull();
+		this.padre = new MamiferoNull();
+	}
+	
+	public boolean esNull() {
+		return false;
 	}
 	
 	public String getIdentificador() {
@@ -46,7 +50,7 @@ public class Mamifero {
 		this.fecha = fecha;
 	}
 	
-	public Mamifero getPadre() {
+	public MamiferoInterface getPadre() {
 		return this.padre;
 	}
 	
@@ -54,7 +58,7 @@ public class Mamifero {
 		this.padre = padre;
 	}
 	
-	public Mamifero getMadre () {
+	public MamiferoInterface getMadre () {
 		return this.madre;
 	}
 	
@@ -62,60 +66,31 @@ public class Mamifero {
 		this.madre = madre;
 	}
 	
-	public Mamifero getAbueloMaterno() {
-		if (this.getMadre() != null) {
+	public MamiferoInterface getAbueloMaterno() {
 		 return this.madre.getPadre();
-		}else {
-			return null;
-		}
+		
 	}
 	
-	public Mamifero getAbuelaMaterna() {
-		if (this.getMadre() != null) {
+	public MamiferoInterface getAbuelaMaterna() {	
 		return this.madre.getMadre();
-		}else {
-			return null;
-		}
 	}
 	
-	public Mamifero getAbueloPaterno() {
-		if (this.getPadre() != null) {
+	public MamiferoInterface getAbueloPaterno() {
 		return this.padre.getPadre();
-		}else {
-			return null;
-		}
 	}
 	
-	public Mamifero getAbuelaPaterna() {
-		if (this.getPadre() != null) {
-		return this.padre.getMadre();
-		}else {
-			return null;
-		}
-		}
+	public MamiferoInterface getAbuelaPaterna() {
+	    return this.padre.getMadre();
+	}
 	
 	
 	
-	public boolean tieneComoAncestroA(Mamifero unMamifero) {
-	    return tieneComoAncestroA2(this, unMamifero);
+	public boolean tieneComoAncestroA(MamiferoInterface unMamifero) {
+		return this.padre.equals(unMamifero)
+		        || this.madre.equals(unMamifero)
+		        || this.padre.tieneComoAncestroA(unMamifero)
+		        || this.madre.tieneComoAncestroA(unMamifero);
 	}
 	
 
-	private boolean tieneComoAncestroA2(Mamifero actual, Mamifero unMamifero) {
-	   
-	    if (actual.getPadre() != null) {
-	        if (actual.getPadre().equals(unMamifero) || tieneComoAncestroA2(actual.getPadre(), unMamifero)) {
-	            return true;
-	        }
-	    }
-
-	    if (actual.getMadre() != null) {
-	        if (actual.getMadre().equals(unMamifero) || tieneComoAncestroA2(actual.getMadre(), unMamifero)) {
-	            return true;
-	        }
-	    }
-
-	  
-	    return false;
-	}
 }
